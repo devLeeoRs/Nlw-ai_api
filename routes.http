@@ -1,1 +1,26 @@
-http://localhost:3333
+# @name get-prompts
+
+GET http://localhost:3333/prompts
+
+### 
+
+# @name upload-file
+POST http://localhost:3333/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="noticia2.mp3"
+Content-Type: audio/mpeg
+
+< ./noticia.mp3
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+# @name crate-transcription
+POST http://localhost:3333/videos/b389dd13-893b-4e2e-bcd2-5d733433fd76/transcription
+Content-Type: application/json
+
+ {
+  "prompt":"noticia, politica"
+ }
